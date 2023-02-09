@@ -1,27 +1,35 @@
 import java.util.Scanner; 
 
 public class PlanoDeSaudeCase {
-    
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite a idade: ");
+      public static void main(String[] args) {
+     Scanner scanner = new Scanner(System.in);
+        System.out.print("Informe a sua idade: ");
         int idade = scanner.nextInt();
-        double valor = 0.0;
-        
-        if (idade <= 10) {
-            valor = 100;
-        } else if (idade <= 29) {
-            valor = 200;
-        } else if (idade <= 45) {
-            valor = 300;
-        } else if (idade <= 59) {
-            valor = 500;
-        } else if (idade <= 65) {
-            valor = 600;
-        } else {
-            valor = 1000;
+        int valorPlano = 0;
+        switch (idade) {
+            case 10:
+                valorPlano = 100;
+                break;
+            case 29:
+                valorPlano = 200;
+                break;
+            case 45:
+                valorPlano = 300;
+                break;
+            case 59:
+                valorPlano = 500;
+                break;
+            case 65:
+                valorPlano = 600;
+                break;
+            default:
+                if (idade > 65) {
+                    valorPlano = 1000;
+                } else {
+                    System.out.println("Idade inválida.");
+                    break;
+                }
         }
-        
-        System.out.println("O valor do plano de saúde para a idade informada é: " + valor + " reais.");
+        System.out.println("O valor do seu plano de saúde é de R$" + valorPlano + ".");
     }
 }
